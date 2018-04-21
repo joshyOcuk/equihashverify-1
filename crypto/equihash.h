@@ -207,6 +207,8 @@ static Equihash<192,7> Eh192_7;
         Eh96_3.InitialiseState(base_state);  \
     } else if (n == 200 && k == 9) {         \
         Eh200_9.InitialiseState(base_state); \
+    } else if (n == 192 && k == 7) {         \
+        Eh192_7.InitialiseState(base_state); \
     } else if (n == 96 && k == 5) {          \
         Eh96_5.InitialiseState(base_state);  \
     } else if (n == 48 && k == 5) {          \
@@ -251,6 +253,8 @@ inline bool EhOptimisedSolve(unsigned int n, unsigned int k, const eh_HashState&
         return Eh96_3.OptimisedSolve(base_state, validBlock, cancelled);
     } else if (n == 200 && k == 9) {
         return Eh200_9.OptimisedSolve(base_state, validBlock, cancelled);
+    } else if (n == 192 && k == 7) {
+        return Eh192_7.OptimisedSolve(base_state, validBlock, cancelled);
     } else if (n == 96 && k == 5) {
         return Eh96_5.OptimisedSolve(base_state, validBlock, cancelled);
     } else if (n == 48 && k == 5) {
@@ -273,6 +277,8 @@ inline bool EhOptimisedSolveUncancellable(unsigned int n, unsigned int k, const 
         ret = Eh96_3.IsValidSolution(base_state, soln);  \
     } else if (n == 200 && k == 9) {                     \
         ret = Eh200_9.IsValidSolution(base_state, soln); \
+    } else if (n == 192 && k == 7) {                     \
+        ret = Eh192_7.IsValidSolution(base_state, soln); \
     } else if (n == 96 && k == 5) {                      \
         ret = Eh96_5.IsValidSolution(base_state, soln);  \
     } else if (n == 48 && k == 5) {                      \
